@@ -1,0 +1,101 @@
+<div class="container">
+	<div class="container form-container">
+		<h4>Bbox values</h4>
+		<textarea id="bbox" placeholder="1189.390625,492,379.609375,78"></textarea>
+	</div>
+	<div class="container button-container">
+		<button id="create" class="button button--primary">Confirm</button>
+	</div>
+</div>
+<script>
+	document.getElementById('create').onclick = () => {
+		const textbox = document.getElementById('bbox');
+		const value = textbox.value;
+		parent.postMessage({ pluginMessage: { type: 'generate-bboxes', value } }, '*');
+	};
+</script>
+<style>
+	:root {
+		--color-text: var(--figma-color-text);
+		--color-bg: var(--figma-color-bg);
+		--color-button-bg: var(--figma-color-bg-brand);
+		--color-button-hover: var(--figma-color-bg-brand-hover);
+		--color-button-pressed: var(--figma-color-bg-brand-pressed);
+		--color-border: var(--figma-color-border-brand);
+		--color-border-selected: var(--figma-color-border-brand-strong);
+	}
+
+	html,
+	body,
+	main {
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	body,
+	input,
+	button {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+			Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	body {
+		background: var(--color-bg);
+		color: var(--color-text);
+		margin: 0;
+		padding: 20px;
+	}
+
+	div.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	h4 {
+		margin: 0;
+	}
+
+	div.form-container {
+		width: 100%;
+	}
+
+	div.button-container {
+		flex-direction: row;
+		width: 100%;
+	}
+
+	button.button--primary {
+		border-radius: 0.25rem;
+		background: var(--color-button-bg);
+		color: white;
+		cursor: pointer;
+		border: 1px solid var(--color-border);
+		padding: 0.5rem 1rem;
+		width: 100%;
+	}
+
+	button.button--primary:hover {
+		background-color: var(--color-button-hover);
+	}
+
+	button.button--primary:active {
+		background-color: var(--color-button-pressed);
+	}
+
+	textarea {
+		stroke-width: 1px;
+		stroke: var(--special-black-1, rgba(0, 0, 0, 0.1));
+		width: 100%;
+		height: 150px;
+		margin: 10px 0;
+	}
+
+	textarea:focus-visible {
+		stroke-width: 2px;
+		stroke: var(--color-border);
+	}
+</style>
