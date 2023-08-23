@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="container form-container">
-		<h4>Bbox values</h4>
-		<textarea id="bbox" placeholder="1189.390625,492,379.609375,78"></textarea>
-		<h4>Layer number <i>(only relevant when working with image sequences)</i></h4>
-		<input id="layer-nr" />
+		<label for="bbox">Bbox values</label>
+		<textarea id="bbox" type="text" name="bbox" placeholder="1189.390625,492,379.609375,78"></textarea>
+		<label for="layer-nr">Layer number <i>- optional, for image sequences only</i></label>
+		<input id="layer-nr" type="number" name="layer-nr" min="1" max="25" />
 	</div>
 	<div class="container button-container">
 		<button id="create" class="button button--primary">Confirm</button>
@@ -40,6 +40,7 @@
 	button {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		font-size: 1rem;
+		font-weight: 500;
 		text-align: center;
 	}
 
@@ -60,6 +61,7 @@
 	h4 {
 		margin: 0;
 		text-align: left;
+		font-weight: 500;
 	}
 
 	div.form-container {
@@ -79,6 +81,8 @@
 		border: 1px solid var(--color-border);
 		padding: 0.5rem 1rem;
 		width: 100%;
+		margin-top: 10px;
+		font-weight: 600;
 	}
 
 	button.button--primary:hover {
@@ -99,13 +103,14 @@
 
 	textarea {
 		height: 150px;
+		margin-bottom: 20px;
 	}
 
 	input {
 		text-align: left;
 		font-size: 0.8em;
-		width: 40px;
-		height: 25px;
+		width: 50px;
+		height: 30px;
 	}
 
 	textarea:focus-visible,
